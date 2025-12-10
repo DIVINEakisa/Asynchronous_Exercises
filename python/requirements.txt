@@ -1,0 +1,2 @@
+# Python asyncio exercises dependencies
+# No external dependencies required - using standard library asyncio
