@@ -51,15 +51,10 @@ function combineUserDataWithPosts(userData, posts) {
 console.log('Exercise 2: Promises - SOLUTION');
 console.log('Starting to fetch data...');
 
-let userDataCache;
-
-fetchUserData(42)
-  .then((userData) => {
-    userDataCache = userData;
-    return fetchUserPosts(42);
-  })
-  .then((posts) => {
-    return combineUserDataWithPosts(userDataCache, posts);
+// Alternative 1: Using Promise.all for concurrent operations
+Promise.all([fetchUserData(42), fetchUserPosts(42)])
+  .then(([userData, posts]) => {
+    return combineUserDataWithPosts(userData, posts);
   })
   .then((finalData) => {
     console.log('Final result:', finalData);
