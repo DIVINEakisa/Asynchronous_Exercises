@@ -19,4 +19,23 @@
 // Which value is returned?
 
 // 📌 Goal: Understand fail-fast behavior.
-function PromiseMethod(iterable) {}
+function PromiseMethod() {
+  const p1 = new Promise((resolve) => {
+    setTimeout(() => {
+      const obj = {
+        name: "divine",
+        age: 12,
+        status: "student",
+      };
+      resolve(obj);
+    }, 1000);
+  });
+  const p2 = new Promise((reject) =>
+    setTimeout(() => reject("Auth failed"), 2000)
+  );
+  const p3 = new Promise((resolve) =>
+    setTimeout(() => resolve("Settings loaded"), 3000)
+  );
+}
+let pr = Promise.all([p1, p2, p3]).then((mess) => console.log("Success"));
+PromiseMethod().pr;
