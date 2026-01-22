@@ -8,4 +8,13 @@ function getUserData(callback) {
 // Task
 
 //  Rewrite the above function using Promises instead of callbacks.
-
+function getUserData(){
+    return new Promise ((resolve,reject)=>{
+        setTimeout(()=>{
+            let user ={id:1,username:"Bret"}
+            resolve(user);
+            reject("Something get wrong")
+        },1000);
+    }).then(mess=>console.log(mess)).catch(err=>console.error(err));
+}
+getUserData();
