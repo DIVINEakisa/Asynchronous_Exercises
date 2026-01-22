@@ -46,7 +46,3 @@
 // Users endpoints https://jsonplaceholder.typicode.com/users
 // Todos endpoints https://jsonplaceholder.typicode.com/todos
 //so the resolved promsie should contain each user and there todos repectively
-//so l will use async and await 
-//fetch the data concurently
-//then return an object conataining users and there todos
-//so because we have an array of urls we need to iterate though each l will use map method ;
