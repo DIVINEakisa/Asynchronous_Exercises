@@ -15,6 +15,6 @@ function getUserData(){
             resolve(user);
             reject("Something get wrong")
         },1000);
-    }).then(mess=>console.log(mess)).catch(err=>console.error(err));
+    })
 }
-getUserData();
+getUserData().then(mess=>console.log(mess)).catch(err=>console.error(err));
