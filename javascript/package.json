@@ -1,0 +1,18 @@
+{
+  "name": "asynchronous-exercises-js",
+  "version": "1.0.0",
+  "description": "JavaScript asynchronous programming exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Run individual exercise files with: node exercises/exercise1-callbacks.js\""
+  },
+  "keywords": [
+    "async",
+    "promises",
+    "callbacks",
+    "javascript",
+    "exercises"
+  ],
+  "author": "",
+  "license": "MIT"
+}
