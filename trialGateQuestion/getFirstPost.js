@@ -12,3 +12,25 @@
 // and only presents data from the source that
 // responds the quickest, while ignoring slower or
 // potentially unreliable sources.
+async function getFastPosts() {
+  let urls = [
+    "https://dummyjson.com/posts",
+    "https://this-may-not-exist.com/posts",
+    "https://jsonplaceholder.typicode.com/posts",
+  ];
+
+  const requests = urls.map((url) =>
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed");
+        return res.json();
+      })
+      .catch(() => new Promise(() => {})),
+  );
+
+  return Promise.race(requests);
+}
+
+getFastPosts()
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));
