@@ -6,8 +6,17 @@ async function fetchUserTodos() {
 
   let users = await responseUser.json();
   let todos = await responseTodos.json();
-  return { users, todos };
+  let combinedData = users.map((user) => {
+    const UserTodo = todos.filter((todo) => todo.userId === user.id);
+    return {
+      ...user,
+      todos: UserTodo,
+    };
+  });
+  return combinedData;
 }
 fetchUserTodos()
-  .then((data) => console.log(data))
-  .catch((error) => console.log("Something Went Wrong", error));
+  .then((data) => {
+    console.log(data[0].todos);
+  })
+  .catch((error) => console.log("ASomething Went Wrong", error));
